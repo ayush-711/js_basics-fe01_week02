@@ -2,6 +2,8 @@
 // console.error("this is error");
 // console.warn("warning");
 
+// const { jsx } = require("react/jsx-runtime"); --> idk what is this , randomly got added while learning oops
+
 
 //strings , numbers , boolean , null , undefined
 
@@ -74,16 +76,112 @@
 
 // array object literals
 
-const todos = [
-    { id: 1, agenda: 'meeting with boss', isCompleted: true } ,
-    { id: 2, agenda: 'coffee', isCompleted: true } ,
-    { id: 3, agenda: 'book reading', isCompleted: false }
-]
+// const todos = [
+//     { id: 1, agenda: 'meeting with boss', isCompleted: true } ,
+//     { id: 2, agenda: 'coffee', isCompleted: true } ,
+//     { id: 3, agenda: 'book reading', isCompleted: false }
+// ]
 
 // console.log(todos[0].agenda, todos[0].isCompleted , todos[2].agenda , todos[2].isCompleted);
 
 
-//to convert data into json 
+//to convert data into json
 
 // const todoJSON = JSON.stringify(todos);
 // console.log(todoJSON);
+
+
+//LOOPS - FOR and WHILE
+
+// for (let i = 0; i <= 10; i++){
+//     console.log(i);
+// }
+
+// let z = 11;
+// while (z <= 20) {
+//     console.log(z);
+//     z++;
+// }
+
+
+
+// FOR-OF LOOP
+
+// for (let todo of todos) {
+//     console.log(todo.agenda);
+//     console.log(todo.isCompleted);
+// }
+
+
+
+// High Order Array Methods
+
+// foreach , map , filter
+
+// todos.forEach(function (todo) { console.log(todo.agenda); });
+
+
+// Ternary Operator
+
+// const x = 7;
+// const colour = x > 7 ? 'red' : 'blue';
+
+// console.log(colour);
+
+// Functions
+
+// function addNums(num1, num2){
+//     console.log(num1 + num2);
+// }
+
+// addNums(5, 29);
+
+// Arrow Functions
+
+// const addNums = (num1 , num2) => { return num1 + num2 };
+
+// console.log(addNums(34, 35));
+
+
+
+// Object Oriented Programming in js.
+
+// constructor function
+
+// function Person(firstName, lastName, DOB) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.DOB = new Date(DOB);
+    
+// }
+
+// Classes in js
+
+class Person{
+    constructor(firstName, lastName, DOB) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.DOB = new Date(DOB);
+    }
+
+    getBirthyear()
+    {
+        return this.DOB.getFullYear();
+    }
+
+
+    getFullName()
+    {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+
+// Object Instatiation
+
+const Person1 = new Person('ayush', 'kumar', '9-1-1999');
+const Person2 = new Person('amitesh', 'lal', '11-28-1927');
+const Person3 = new Person('hero', 'no1', '9-1-1994');
+console.log(Person3.getFullName());
+
+
