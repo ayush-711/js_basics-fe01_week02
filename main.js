@@ -157,31 +157,94 @@
 
 // Classes in js
 
-class Person{
-    constructor(firstName, lastName, DOB) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.DOB = new Date(DOB);
+// class Person{
+//     constructor(firstName, lastName, DOB) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.DOB = new Date(DOB);
+//     }
+
+//     getBirthyear()
+//     {
+//         return this.DOB.getFullYear();
+//     }
+
+
+//     getFullName()
+//     {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+// }
+
+
+// // Object Instatiation
+
+// const Person1 = new Person('ayush', 'kumar', '9-1-1999');
+// const Person2 = new Person('amitesh', 'lal', '11-28-1927');
+// const Person3 = new Person('hero', 'no1', '9-1-1994');
+// console.log(Person3.getFullName());
+
+
+
+//                                                DOM
+
+
+
+// const ul = document.querySelector('.items');
+// ul.remove();
+// ul.firstElementChild.textContent = 'hello';
+// ul.children[2].remove();
+// ul.children[1].innerText = 'hahah';
+// ul.lastElementChild.innerHTML = '<h3>hello</h3>'
+
+
+// const btn = document.querySelector('.btn');
+
+// btn.style.background = 'red';
+
+
+//  Events
+
+
+// const btn = document.querySelector('.btn');
+// btn.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     // console.log('click');
+
+//     document.querySelector('#my-form').style.background = 'red';
+//     document.querySelector('.items').lastElementChild.remove();
+
+// })
+
+
+// mini app to save credentials
+
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+    e.preventDefault();
+
+    if (nameInput.value === '' || emailInput.value === '') {
+        msg.classList.add('error');
+        msg.innerHTML = 'Please enter the credentials!';
+        setTimeout(() => msg.remove(), 3000);
     }
 
-    getBirthyear()
-    {
-        return this.DOB.getFullYear();
+    else {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(
+            `${nameInput.value} : ${emailInput.value}`));
+        
+        userList.appendChild(li);
     }
+    // Clear fields
 
-
-    getFullName()
-    {
-        return `${this.firstName} ${this.lastName}`;
-    }
+    nameInput.value = '';
+    emailInput.value = '';
 }
-
-
-// Object Instatiation
-
-const Person1 = new Person('ayush', 'kumar', '9-1-1999');
-const Person2 = new Person('amitesh', 'lal', '11-28-1927');
-const Person3 = new Person('hero', 'no1', '9-1-1994');
-console.log(Person3.getFullName());
-
-
